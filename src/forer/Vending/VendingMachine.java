@@ -2,15 +2,12 @@ package forer.Vending;
 
 public class VendingMachine {
 
-
 	public Change pay(double _totalPaid, double _totalPurchase) {
-		
 
 		Change chan = new Change();
 		int totalPurchase;
 		int totalPaid;
-	
-		
+
 		totalPurchase = (int) (_totalPurchase * 100);
 		totalPaid = (int) (_totalPaid * 100);
 		int amountLeft = 0;
@@ -34,7 +31,7 @@ public class VendingMachine {
 			chan.setNumOfPennies(amountLeft / chan.getPenny());
 			amountLeft = amountLeft - (chan.getNumOfPennies() * chan.getPenny());
 		}
-		
+
 		return chan;
 	}
 

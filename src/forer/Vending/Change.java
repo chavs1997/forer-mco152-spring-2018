@@ -10,9 +10,7 @@ public class Change {
 	private int numOfDimes;
 	private int numOfNickels;
 	private int numOfPennies;
-	
-	
-	
+
 	public int getNumOfQuarters() {
 		return numOfQuarters;
 	}

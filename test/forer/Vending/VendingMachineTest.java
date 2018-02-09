@@ -34,24 +34,24 @@ class VendingMachineTest {
 		VendingMachine vend = new VendingMachine();
 		Change result = vend.pay(3.00, 4.11);
 
-
+		assertEquals(0, result.getNumOfQuarters());
+		assertEquals(0, result.getNumOfDimes());
+		assertEquals(0, result.getNumOfNickels());
+		assertEquals(0, result.getNumOfPennies());
 
 	}
-	
+
 	@Test
 	public void testDoublePay() {
 		VendingMachine vend = new VendingMachine();
 		Change result = vend.pay(1.00, .99);
 
-
 		assertEquals(0, result.getNumOfQuarters());
 		assertEquals(0, result.getNumOfDimes());
 		assertEquals(0, result.getNumOfNickels());
 		assertEquals(1, result.getNumOfPennies());
-		
-		result = vend.pay(1.00, 1.00);
-		
 
+		result = vend.pay(1.00, 1.00);
 
 		assertEquals(0, result.getNumOfQuarters());
 		assertEquals(0, result.getNumOfDimes());
