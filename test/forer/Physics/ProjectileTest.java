@@ -1,4 +1,4 @@
-package Forer.physics;
+package forer.Physics;
 
 import static org.junit.Assert.*;
 
