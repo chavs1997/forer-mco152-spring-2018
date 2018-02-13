@@ -27,6 +27,8 @@ class DictionaryTest {
 		String OptionDefinition = "to grant an option (a right to buy or sell something at a specified price within a specified time) on [v -ED, -ING, -S]";
 		assertEquals(OptionDefinition, dic.getDefinition("option"));
 
+		assertEquals(null, dic.getDefinition("belvedere"));
+
 	}
 
 }

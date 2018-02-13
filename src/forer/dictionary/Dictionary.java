@@ -35,12 +35,14 @@ public class Dictionary {
 		while (sc.hasNextLine() && definition == null) {
 			line = sc.nextLine();
 
-			if (line.substring(0, word.length()).equalsIgnoreCase(word)) {
+			if (line.substring(0, word.length()).equalsIgnoreCase(word)
+					&& line.substring(word.length()).isEmpty() == false) {
 				definition = line.substring(word.length() + 1);
-
-				while ((definition.charAt(definition.length() - 1)) != ']') {
-					definition += sc.nextLine();
-				}
+			}
+		}
+		if (definition != null) {
+			if (definition.isEmpty() || definition == " ") {
+				definition = null;
 			}
 		}
 		sc.close();
