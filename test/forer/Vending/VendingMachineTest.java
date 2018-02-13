@@ -1,4 +1,4 @@
-package forer.Vending;
+package forer.vending;
 
 import static org.junit.jupiter.api.Assertions.*;
 

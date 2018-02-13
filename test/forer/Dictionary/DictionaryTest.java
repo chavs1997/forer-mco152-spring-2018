@@ -1,4 +1,4 @@
-package forer.Dictionary;
+package forer.dictionary;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +13,7 @@ class DictionaryTest {
 		Dictionary dic = new Dictionary();
 		assertEquals(true, dic.contains("bis"));
 		assertEquals(true, dic.contains("ar"));
-		assertEquals(false, dic.contains("alpeech"));
+		assertEquals(false, dic.contains("vit"));
 
 	}
 

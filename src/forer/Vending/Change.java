@@ -1,4 +1,4 @@
-package forer.Vending;
+package forer.vending;
 
 public class Change {
 	private int quarter = 25;

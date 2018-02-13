@@ -1,4 +1,4 @@
-package forer.Dictionary;
+package forer.dictionary;
 
 import java.io.*;
 import java.util.Scanner;
@@ -17,8 +17,9 @@ public class Dictionary {
 		BufferedReader dictionary = new BufferedReader(new FileReader(this.dictionary));
 		boolean contain = false;
 		String line;
-		while ((line = dictionary.readLine()) != null) {
-			if (line.substring(0, word.length()).equalsIgnoreCase(word)) {
+		while ((line = dictionary.readLine()) != null && contain == false) {
+			if (line.substring(0, word.length()).equalsIgnoreCase(word)
+					&& line.substring(word.length(), word.length() + 1).equalsIgnoreCase(" ")) {
 				contain = true;
 			}
 
@@ -31,16 +32,14 @@ public class Dictionary {
 		String definition = null;
 		Scanner sc = new Scanner(this.dictionary);
 		String line;
-		if (this.contains(word)) {
-			while (sc.hasNextLine() && definition == null) {
-				line = sc.nextLine();
+		while (sc.hasNextLine() && definition == null) {
+			line = sc.nextLine();
 
-				if (line.substring(0, word.length()).equalsIgnoreCase(word)) {
-					definition = line.substring(word.length() + 1);
+			if (line.substring(0, word.length()).equalsIgnoreCase(word)) {
+				definition = line.substring(word.length() + 1);
 
-					while ((definition.charAt(definition.length() - 1)) != ']') {
-						definition += sc.nextLine();
-					}
+				while ((definition.charAt(definition.length() - 1)) != ']') {
+					definition += sc.nextLine();
 				}
 			}
 		}
