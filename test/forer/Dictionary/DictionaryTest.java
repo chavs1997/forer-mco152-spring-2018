@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class DictionaryTest {
 
 	@Test
-	void ContainsTest() throws IOException {
+	void containsTest() throws IOException {
 		Dictionary dic = new Dictionary();
 		assertEquals(true, dic.contains("bis"));
 		assertEquals(true, dic.contains("ar"));
@@ -18,7 +18,7 @@ class DictionaryTest {
 	}
 
 	@Test
-	void GetDefinitionTest() throws IOException {
+	void getDefinitionTest() throws IOException {
 		Dictionary dic = new Dictionary();
 		String BisDefinition = "{twice=adv} [adv]";
 		assertEquals(BisDefinition, dic.getDefinition("bis"));

@@ -11,7 +11,7 @@ public class Dictionary {
 
 	public Dictionary() throws IOException {
 		File dictionary = new File(
-				"C:\\Users\\chavs\\Documents\\Eclipse Projects\\VendingMachine\\src\\forer\\Dictionary\\dictionary.txt");
+				"src\\forer\\Dictionary\\dictionary.txt");
 		this.dictionary = dictionary;
 		Map<String, String> map = new HashMap<String, String>();
 		BufferedReader in = new BufferedReader(new FileReader(dictionary));
@@ -22,7 +22,7 @@ public class Dictionary {
 			if (parts.length < 2) {
 				String[] doubleParts = new String[2];
 				doubleParts[0] = parts[0];
-				doubleParts[1] = "null";
+				doubleParts[1] = null;
 				map.put(doubleParts[0], doubleParts[1]);
 
 			} else {
@@ -42,11 +42,12 @@ public class Dictionary {
 
 	public String getDefinition(String word) throws IOException {
 		String definition = null;
-		if (map.containsKey(word.toUpperCase())) {
-			if (map.get(word.toUpperCase()) != "null")
-				definition = map.get(word.toUpperCase());
-		}
+		String wordInDic = word.toUpperCase();
+		if (map.containsKey(wordInDic)) {
 
+			definition = map.get(wordInDic);
+
+		}
 		return definition;
 	}
 }
