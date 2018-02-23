@@ -1,4 +1,4 @@
-package forer.dictionary;
+package forer.Dictionary;
 
 import java.io.*;
 import java.util.HashMap;

@@ -1,12 +1,14 @@
-package forer.dictionary;
+package forer.Dictionary;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class DictionaryTest {
+import forer.Dictionary.Dictionary;
+
+class dictionaryTest {
 
 	@Test
 	void containsTest() throws IOException {

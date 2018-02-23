@@ -1,4 +1,4 @@
-package forer.vending;
+package forer.Vending;
 
 public class VendingMachine {
 
