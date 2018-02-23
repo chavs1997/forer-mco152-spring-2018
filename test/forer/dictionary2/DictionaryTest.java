@@ -1,10 +1,12 @@
-package forer.dictionary;
+package forer.dictionary2;
 
 import static org.junit.Assert.*;
 
 import java.io.IOException;
 
 import org.junit.Test;
+
+import forer.dictionary.Dictionary;
 
 public class DictionaryTest {
 
