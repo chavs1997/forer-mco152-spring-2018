@@ -1,4 +1,4 @@
-package forer.physics2;
+package forer.physics;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

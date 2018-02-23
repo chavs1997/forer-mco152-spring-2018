@@ -1,9 +1,9 @@
-package forer.physics2;
+package forer.physics;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import forer.physics2.Projectile;
+import forer.physics.Projectile;
 
 public class ProjectileTest {
 
