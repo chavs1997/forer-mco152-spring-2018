@@ -1,10 +1,10 @@
-package forer.Vending;
+package forer.vending;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-class VendingMachineTest {
+public class VendingMachineTest {
 
 	@Test
 	public void testPay1() {

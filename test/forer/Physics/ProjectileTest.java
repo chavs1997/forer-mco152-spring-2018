@@ -1,20 +1,26 @@
-package forer.Physics;
+package forer.physics;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
-import forer.Physics.Projectile;
 
 public class ProjectileTest {
 
 	@Test
-	public void test() {
-		Projectile model = new Projectile(72, 23);
-		double xAtTime = 7.107390870623791;
-		assertEquals(xAtTime, model.getX(1));
-		assertEquals(21.522899624365586, model.getY(3));
-		
+	public void getXTest() {
+		Projectile proj = new Projectile(72, 23);
+		double xAtTime = proj.getX(4);
+
+		assertEquals(28.42, xAtTime, 0.1);
+
+	}
+
+	@Test
+	public void getYTest() {
+		Projectile proj = new Projectile(72, 23);
+		double yAtTime = proj.getY(6);
+
+		assertEquals(-45.1542, yAtTime, 0.1);
+
 	}
 
 }

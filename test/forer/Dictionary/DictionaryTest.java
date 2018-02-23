@@ -1,4 +1,4 @@
-package forer.Dictionary;
+package forer.dictionary;
 
 import static org.junit.Assert.*;
 
@@ -6,12 +6,10 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import forer.dictionary.Dictionary;
-
-class dictionaryTest {
+public class DictionaryTest {
 
 	@Test
-	void containsTest() throws IOException {
+	public void containsTest() throws IOException {
 		Dictionary dic = new Dictionary();
 		assertEquals(true, dic.contains("bis"));
 		assertEquals(true, dic.contains("ar"));
@@ -20,7 +18,7 @@ class dictionaryTest {
 	}
 
 	@Test
-	void getDefinitionTest() throws IOException {
+	public void getDefinitionTest() throws IOException {
 		Dictionary dic = new Dictionary();
 		String BisDefinition = "{twice=adv} [adv]";
 		assertEquals(BisDefinition, dic.getDefinition("bis"));

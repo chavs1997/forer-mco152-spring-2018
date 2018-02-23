@@ -10,8 +10,7 @@ public class Dictionary {
 	Map<String, String> map;
 
 	public Dictionary() throws IOException {
-		File dictionary = new File(
-				"src\\forer\\Dictionary\\dictionary.txt");
+		File dictionary = new File("src\\forer\\Dictionary\\dictionary.txt");
 		this.dictionary = dictionary;
 		Map<String, String> map = new HashMap<String, String>();
 		BufferedReader in = new BufferedReader(new FileReader(dictionary));
