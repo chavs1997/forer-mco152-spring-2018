@@ -1,4 +1,4 @@
-package forer.dictionary2;
+package forer.dictionary;
 
 import static org.junit.Assert.*;
 
