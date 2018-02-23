@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import forer.Dictionary.Dictionary;
+import forer.dictionary.Dictionary;
 
 class dictionaryTest {
 
