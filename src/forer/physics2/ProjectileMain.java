@@ -1,4 +1,4 @@
-package forer.physics;
+package forer.physics2;
 
 public class ProjectileMain {
 

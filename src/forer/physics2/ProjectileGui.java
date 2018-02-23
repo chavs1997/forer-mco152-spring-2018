@@ -1,4 +1,4 @@
-package forer.physics;
+package forer.physics2;
 
 import java.awt.*;
 import java.awt.event.*;

@@ -1,8 +1,11 @@
-package forer.vending;
+package forer.vending2;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import forer.vending2.Change;
+import forer.vending2.VendingMachine;
 
 public class VendingMachineTest {
 
