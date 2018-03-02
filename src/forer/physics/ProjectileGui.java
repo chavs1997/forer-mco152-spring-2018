@@ -1,39 +1,78 @@
 package forer.physics;
 
 import java.awt.*;
-import java.awt.event.*;
-
 import javax.swing.*;
 
 public class ProjectileGui extends JFrame {
-	private JTextField textField;
 
+	JTextField returnX;
+	JTextField returnY;
 	public ProjectileGui() {
 		setTitle("Projectile Viewer");
-		setSize(800, 600);
+		setSize(300, 400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
-		JPanel northPanel = new JPanel();
+		panel.setLayout(new GridBagLayout());
+		GridBagConstraints constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
 
-		panel.setLayout(new BorderLayout());
-		northPanel.add(new JLabel("Hello World"));
-		northPanel.add(new JLabel("Goodbye World"));
-		panel.add(northPanel, BorderLayout.NORTH);
+		panel.add(new JLabel("Angle: "), constraint);
 
-		textField = new JTextField("Text Field");
-		panel.add(textField, BorderLayout.WEST);
+		constraint.gridx = 1;
+		JTextField getAngle = new JTextField();
+		panel.add(getAngle, constraint);
 
-		JButton button = new JButton("Button");
+		constraint.gridx = 0;
+		constraint.gridy = 1;
+		panel.add(new JLabel("Velocity: "), constraint);
 
-		button.addActionListener(this::changeTextField);
-		panel.add(button, BorderLayout.CENTER);
-		panel.add(new JLabel("Can we take a break?"), BorderLayout.SOUTH);
+		constraint.gridx = 1;
+		JTextField getVelocity = new JTextField();
+		panel.add(getVelocity, constraint);
+
+		constraint.gridx = 0;
+		constraint.gridy = 2;
+		panel.add(new JLabel("Time: "), constraint);
+
+		constraint.gridx = 1;
+		JTextField getTime = new JTextField();
+		panel.add(getTime, constraint);
+
+		constraint.gridx = 0;
+		constraint.gridy = 3;
+		constraint.gridwidth = 2;
+		panel.add(new JLabel("Coordinates: "), constraint);
+
+		constraint.gridy = 4;
+		panel.add(new JLabel("x: "), constraint);
+
+		constraint.gridx = 1;
+		returnX = new JTextField();
+		panel.add(returnX, constraint);
+
+		constraint.gridx = 0;
+		constraint.gridy = 5;
+		panel.add(new JLabel("y: "), constraint);
+
+		constraint.gridx = 1;
+		constraint.gridy = 5;
+		returnY = new JTextField();
+		panel.add(returnY, constraint);
+
+		ProjectionListener listenAngle = new ProjectionListener(getAngle, "angle", returnX, returnY);
+		getAngle.getDocument().addDocumentListener(listenAngle);
+
+		ProjectionListener listenVelocity = new ProjectionListener(getVelocity, "velocity", returnX, returnY);
+		getVelocity.getDocument().addDocumentListener(listenVelocity);
+
+		ProjectionListener listenTime = new ProjectionListener(getTime, "time", returnX, returnY);
+		getTime.getDocument().addDocumentListener(listenTime);
+
 		add(panel);
-	}
 
-	public void changeTextField(ActionEvent e) {
-		textField.setText("ActionPerformed");
 	}
 
 	public static void main(String args[]) {

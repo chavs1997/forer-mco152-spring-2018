@@ -7,21 +7,21 @@ import forer.physics.Projectile;
 
 public class ProjectileTest {
 
-	@Test
-	public void getXTest() {
-		Projectile proj = new Projectile(72, 23);
-		double xAtTime = proj.getX(4);
-
-		assertEquals(28.42, xAtTime, 0.1);
-
-	}
+//	@Test
+//	public void getXTest() {
+//		Projectile proj = new Projectile(72, 35);
+//		double xAtTime = proj.getX(10);
+//
+//		assertEquals(0, xAtTime, 0.1);
+//
+//	}
 
 	@Test
 	public void getYTest() {
-		Projectile proj = new Projectile(72, 23);
-		double yAtTime = proj.getY(6);
+		Projectile proj = new Projectile(72, 35);
+		double yAtTime = proj.getY(10);
 
-		assertEquals(-45.1542, yAtTime, 0.1);
+		assertEquals(-490.0, yAtTime, 0.1);
 
 	}
 

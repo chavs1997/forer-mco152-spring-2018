@@ -19,4 +19,13 @@ public class Projectile {
 		return Math.sin(angle) * velocity * time - (0.5 * 9.8 * time * time);
 	}
 
+	public void setAngle(double angle) {
+		this.angle = angle;
+	}
+
+	public void setVelocity(double velocity) {
+		this.velocity = velocity;
+	}
+	
+
 }
