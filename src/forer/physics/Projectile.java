@@ -20,7 +20,7 @@ public class Projectile {
 	}
 
 	public void setAngle(double angle) {
-		this.angle = angle;
+		this.angle = Math.toRadians(angle);
 	}
 
 	public void setVelocity(double velocity) {

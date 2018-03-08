@@ -2,14 +2,17 @@ package forer.physics;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 public class ProjectileGui extends JFrame {
 
 	JTextField returnX;
 	JTextField returnY;
+
 	public ProjectileGui() {
 		setTitle("Projectile Viewer");
-		setSize(300, 400);
+		setSize(500, 200);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
@@ -62,14 +65,42 @@ public class ProjectileGui extends JFrame {
 		returnY = new JTextField();
 		panel.add(returnY, constraint);
 
-		ProjectionListener listenAngle = new ProjectionListener(getAngle, "angle", returnX, returnY);
-		getAngle.getDocument().addDocumentListener(listenAngle);
+		DocumentListener listen = new DocumentListener() {
 
-		ProjectionListener listenVelocity = new ProjectionListener(getVelocity, "velocity", returnX, returnY);
-		getVelocity.getDocument().addDocumentListener(listenVelocity);
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				change(e);
+			}
 
-		ProjectionListener listenTime = new ProjectionListener(getTime, "time", returnX, returnY);
-		getTime.getDocument().addDocumentListener(listenTime);
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				change(e);
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				change(e);
+			}
+
+			public void change(DocumentEvent e) {
+				Projectile proj = new Projectile(0, 0);
+				if (!getAngle.getText().isEmpty() && !getVelocity.getText().isEmpty() && !getTime.getText().isEmpty()) {
+					double angle = Double.parseDouble(getAngle.getText());
+					double velocity = Double.parseDouble(getVelocity.getText());
+					int time = Integer.parseInt(getTime.getText());
+					proj.setAngle(angle);
+					proj.setVelocity(velocity);
+					returnX.setText(Double.toString(proj.getX(time)));
+					returnY.setText(Double.toString(proj.getY(time)));
+
+				}
+
+			}
+		};
+		
+		getAngle.getDocument().addDocumentListener(listen);
+		getVelocity.getDocument().addDocumentListener(listen);
+		getTime.getDocument().addDocumentListener(listen);
 
 		add(panel);
 
