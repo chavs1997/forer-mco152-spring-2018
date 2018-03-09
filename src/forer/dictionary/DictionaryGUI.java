@@ -16,7 +16,7 @@ public class DictionaryGUI extends JFrame {
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		
 		JPanel topPanel = new JPanel();
-		topPanel.setBackground(Color.YELLOW);
+		topPanel.setBackground(Color.PINK);
 		JTextField word = new JTextField("Enter your word here");
 		topPanel.add(word);
 		JButton search = new JButton("Search");
@@ -25,6 +25,7 @@ public class DictionaryGUI extends JFrame {
 		centerText.setLineWrap(true);
 		centerText.setWrapStyleWord(true);
 		centerText.setEditable(false);
+		centerText.setBackground(Color.PINK);
 		
 		DictionaryListener listener = new DictionaryListener(word, centerText);
 		search.addActionListener(listener);
@@ -32,7 +33,7 @@ public class DictionaryGUI extends JFrame {
 		topPanel.add(search);
 		mainPanel.add(topPanel);
 		JPanel lower = new JPanel();
-		lower.setBackground(Color.CYAN);
+		lower.setBackground(Color.RED);
 		lower.add(centerText);
 		mainPanel.add(lower);
 
