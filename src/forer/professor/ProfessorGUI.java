@@ -160,6 +160,15 @@ public class ProfessorGUI extends JFrame {
 					}
 
 					feed.getFeatures().add(prof);
+					String professorString = gson.toJson(prof) + "]}";
+					try(FileWriter fw = new FileWriter("src/forer/professor/professors.json", true);
+						    BufferedWriter bw = new BufferedWriter(fw);
+						    PrintWriter out = new PrintWriter(bw))
+						{
+						    out.println(professorString);
+						} catch (IOException e) {
+							System.out.println(e.getMessage());
+						}
 					addMessage.setText("Professor added successfully.");
 				}
 
