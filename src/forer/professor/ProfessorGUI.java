@@ -143,29 +143,24 @@ public class ProfessorGUI extends JFrame {
 					prof.setIndex(String.valueOf(feed.getFeatures().size()));
 					prof.setFullname(enterName.getText().trim());
 					prof.setDifficulty(Integer.parseInt(enterDif.getText()));
-					if(enterQuiz.getText().equalsIgnoreCase("yes")) {
+					if (enterQuiz.getText().equalsIgnoreCase("yes")) {
 						prof.setQuizzes(true);
-					}else if(enterQuiz.getText().equalsIgnoreCase("no")){
+					} else {
 						prof.setQuizzes(false);
-					}else {
-						addMessage.setText("Check the spelling in your fields.");
 					}
-					if(enterPaper.getText().equalsIgnoreCase("yes")) {
+					if (enterPaper.getText().equalsIgnoreCase("yes")) {
 						prof.setPapers(true);
-					}else if(enterPaper.getText().equalsIgnoreCase("no")) {
+					} else {
 						prof.setPapers(false);
-					}else {
-						addMessage.setText("Check the spelling in your fields.");
 					}
-					if(enterProj.getText().equalsIgnoreCase("yes")) {
+					if (enterProj.getText().equalsIgnoreCase("yes")) {
 						prof.setProjects(true);
-					}else if(enterProj.getText().equalsIgnoreCase("no")) {
+					} else {
 						prof.setProjects(false);
-					}else {
-						addMessage.setText("Check the spelling in your fields.");
 					}
-					
+
 					feed.getFeatures().add(prof);
+					addMessage.setText("Professor added successfully.");
 				}
 
 			}
