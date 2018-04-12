@@ -43,7 +43,7 @@ public class ProjectileGraph extends JComponent {
 			int pointX;
 			int pointY;
 			
-			for(int i = 1; i <= 25; i++) {
+			for(double i = 1; i <= 25; i++) {
 				pointX = (int)proj.getX(i);
 				pointY = (int)proj.getY(i);
 				pointsX.add(pointX);

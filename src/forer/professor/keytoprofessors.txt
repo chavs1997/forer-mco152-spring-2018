@@ -1,0 +1,8 @@
+{
+	"index": "%index%",
+	"difficulty": "%randInt(0,10)%",
+	"fullname": "%fullname%",
+	"quizzes":"%bool%",
+	"papers":"%bool%",
+	"projects":"%bool%"
+}

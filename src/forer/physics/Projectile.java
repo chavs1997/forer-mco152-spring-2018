@@ -10,12 +10,12 @@ public class Projectile {
 		velocity = vel;
 	}
 
-	public double getX(int time) {
+	public double getX(double time) {
 
 		return Math.cos(angle) * velocity * time;
 	}
 
-	public double getY(int time) {
+	public double getY(double time) {
 		return Math.sin(angle) * velocity * time - (0.5 * 9.8 * time * time);
 	}
 
