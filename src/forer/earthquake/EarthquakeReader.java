@@ -19,6 +19,6 @@ public class EarthquakeReader {
 			}
 		}
 		System.out.println(count);
-		
+		// System.out.println(feed.getFeatures().stream().filter(e -> e.getProperties().getMag() >= 5).count()); same result as lines 16-21
 	}
 }
