@@ -77,31 +77,15 @@ public class EarthquakeGUI extends JFrame {
 
 		JButton button = new JButton("Refresh");
 		button.addActionListener(e -> {
-			getMonthEarthquake(e);
-			getWeekEarthquake(e);
-			getDayEarthquake(e);
-			getHourEarthquake(e);
+			getMonthEarthquake();
+			getWeekEarthquake();
+			getDayEarthquake();
+			getHourEarthquake();
 		});
 
 		homePanel.add(mainPanel);
 		homePanel.add(button);
 		add(homePanel);
-	}
-
-	private void getHourEarthquake(ActionEvent e) {
-		getHourEarthquake();
-	}
-
-	private void getDayEarthquake(ActionEvent e) {
-		getDayEarthquake();
-	}
-
-	private void getWeekEarthquake(ActionEvent e) {
-		getWeekEarthquake();
-	}
-
-	private void getMonthEarthquake(ActionEvent e) {
-		getMonthEarthquake();
 	}
 
 	public void getHourEarthquake() {
