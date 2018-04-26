@@ -10,19 +10,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class EarthquakeGUI extends JFrame {
 
-	Retrofit retrofit = new Retrofit.Builder().baseUrl("https://earthquake.usgs.gov")
+	private Retrofit retrofit = new Retrofit.Builder().baseUrl("https://earthquake.usgs.gov")
 			.addConverterFactory(GsonConverterFactory.create()).build();
 
-	USGSEarthquakeService service = retrofit.create(USGSEarthquakeService.class);
+	private USGSEarthquakeService service = retrofit.create(USGSEarthquakeService.class);
 
-	JLabel enterMonthMag = new JLabel();
-	JLabel enterWeekMag = new JLabel();
-	JLabel enterDayMag = new JLabel();
-	JLabel enterHourMag = new JLabel();
-	JLabel enterMonthLoc = new JLabel();
-	JLabel enterWeekLoc = new JLabel();
-	JLabel enterDayLoc = new JLabel();
-	JLabel enterHourLoc = new JLabel();
+	private JLabel enterMonthMag = new JLabel();
+	private JLabel enterWeekMag = new JLabel();
+	private JLabel enterDayMag = new JLabel();
+	private JLabel enterHourMag = new JLabel();
+	private JLabel enterMonthLoc = new JLabel();
+	private JLabel enterWeekLoc = new JLabel();
+	private JLabel enterDayLoc = new JLabel();
+	private JLabel enterHourLoc = new JLabel();
 
 	public EarthquakeGUI() {
 		setTitle("Highest Magnitude Earthquakes");
