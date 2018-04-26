@@ -56,5 +56,4 @@ public class Professor {
 		this.projects = projects;
 	}
 
-	
 }

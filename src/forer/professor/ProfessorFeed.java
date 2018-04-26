@@ -11,23 +11,22 @@ public class ProfessorFeed {
 
 	public boolean contains(String name) {
 		boolean contains = false;
-		for (int i = 0; i < items.size(); i++) {
-			if (items.get(i).getFullName().equalsIgnoreCase(name.trim())) {
+		for (Professor prof : items) {
+			if (prof.getFullName().trim().equalsIgnoreCase(name)) {
 				contains = true;
 			}
 		}
-
 		return contains;
 
 	}
 
 	public Professor getProfessor(String name) {
-		Professor prof = new Professor();
-		for (int i = 0; i < items.size(); i++) {
-			if (items.get(i).getFullName().equalsIgnoreCase(name.trim())) {
-				prof = items.get(i);
+		Professor professor = null;
+		for (Professor prof : items) {
+			if (prof.getFullName().equalsIgnoreCase(name.trim())) {
+				professor = prof;
 			}
 		}
-		return prof;
+		return professor;
 	}
 }

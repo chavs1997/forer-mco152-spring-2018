@@ -56,16 +56,16 @@ public class ProfessorGUI extends JFrame {
 		JButton checkButton = new JButton("Find Professor");
 		searchGrid.add(checkButton, constraint);
 		constraint.gridy = 2;
-		JTextField difficulty = new JTextField();
+		JLabel difficulty = new JLabel();
 		searchGrid.add(difficulty, constraint);
-		JTextField quizzes = new JTextField();
+		JLabel quizzes = new JLabel();
 		constraint.gridy = 3;
 		searchGrid.add(quizzes, constraint);
 		constraint.gridy = 4;
-		JTextField papers = new JTextField();
+		JLabel papers = new JLabel();
 		searchGrid.add(papers, constraint);
 		constraint.gridy = 5;
-		JTextField projects = new JTextField();
+		JLabel projects = new JLabel();
 		searchGrid.add(projects, constraint);
 
 		searchPanel.add(searchGrid);
@@ -73,15 +73,10 @@ public class ProfessorGUI extends JFrame {
 		searchPanel.add(specialMessage);
 
 		checkButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				boolean contains = feed.contains(searchName.getText().trim());
-				Professor prof = feed.getProfessor(searchName.getText().trim());
-
-				if (contains == true) {
-
+				Professor prof = feed.getProfessor(searchName.getText());
+				if (prof != null) {
 					difficulty.setText(Integer.toString(prof.getDifficulty()));
 					quizzes.setText(Boolean.toString(prof.isQuizzes()));
 					papers.setText(Boolean.toString(prof.isPapers()));
@@ -114,13 +109,13 @@ public class ProfessorGUI extends JFrame {
 		JTextField enterDif = new JTextField("enter 1-10 scale difficulty");
 		addGrid.add(enterDif, constraint);
 		constraint.gridy = 2;
-		JTextField enterQuiz = new JTextField("enter yes or no for quizzes");
+		JCheckBox enterQuiz = new JCheckBox();
 		addGrid.add(enterQuiz, constraint);
 		constraint.gridy = 3;
-		JTextField enterPaper = new JTextField("enter yes or no for papers");
+		JCheckBox enterPaper = new JCheckBox();
 		addGrid.add(enterPaper, constraint);
 		constraint.gridy = 4;
-		JTextField enterProj = new JTextField("enter yes or no for projects");
+		JCheckBox enterProj = new JCheckBox();
 		addGrid.add(enterProj, constraint);
 		constraint.gridy = 5;
 		JButton addButton = new JButton("Add Professor");
@@ -128,61 +123,39 @@ public class ProfessorGUI extends JFrame {
 		JLabel addMessage = new JLabel();
 
 		addButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if (feed.contains(enterName.getText().trim())) {
+				if (feed.contains(enterName.getText())) {
 					addMessage.setText(
 							"This professor already exists. Please, search on the right to see their information.");
-				} else if (enterName.getText().isEmpty() || enterDif.getText().isEmpty()
-						|| enterQuiz.getText().isEmpty() || enterPaper.getText().isEmpty()
-						|| enterProj.getText().isEmpty()) {
+				} else if (enterName.getText().isEmpty() || enterDif.getText().isEmpty()) {
 					addMessage.setText("All fields must be filled in to add a professor.");
 				} else {
 					Professor prof = new Professor();
 					prof.setIndex(String.valueOf(feed.getFeatures().size()));
 					prof.setFullname(enterName.getText().trim());
 					prof.setDifficulty(Integer.parseInt(enterDif.getText()));
-					if (enterQuiz.getText().equalsIgnoreCase("yes")) {
-						prof.setQuizzes(true);
-					} else {
-						prof.setQuizzes(false);
-					}
-					if (enterPaper.getText().equalsIgnoreCase("yes")) {
-						prof.setPapers(true);
-					} else {
-						prof.setPapers(false);
-					}
-					if (enterProj.getText().equalsIgnoreCase("yes")) {
-						prof.setProjects(true);
-					} else {
-						prof.setProjects(false);
-					}
-
+					prof.setQuizzes(enterQuiz.isSelected());
+					prof.setPapers(enterPaper.isSelected());
+					prof.setProjects(enterProj.isSelected());
 					feed.getFeatures().add(prof);
-					try(FileWriter fw = new FileWriter("src/forer/professor/professors.json");
-						    BufferedWriter bw = new BufferedWriter(fw);
-						    PrintWriter out = new PrintWriter(bw))
-						{
-						    out.println(gson.toJson(feed));
-						} catch (IOException e) {
-							System.out.println(e.getMessage());
-						}
+
+					try {
+						FileWriter fw = new FileWriter("src/forer/professor/professors.json");
+						gson.toJson(feed, fw);
+						fw.close();
+					} catch (IOException e) {
+						e.getMessage();
+					}
 					addMessage.setText("Professor added successfully.");
 				}
-
 			}
-
 		});
-
 		addPanel.add(addGrid);
 		addPanel.add(addMessage);
-
 		mainPanel.add(searchPanel);
 		mainPanel.add(addPanel);
-
 		add(mainPanel);
-
 	}
 
 	public static void main(String[] args) throws IOException {
