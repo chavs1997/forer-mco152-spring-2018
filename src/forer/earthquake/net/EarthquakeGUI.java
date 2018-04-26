@@ -70,7 +70,12 @@ public class EarthquakeGUI extends JFrame {
 		constraint.gridy = 4;
 		mainPanel.add(enterHourLoc, constraint);
 
-		JButton button = new JButton("Search for maximum earthquakes!");
+		getMonthEarthquake();
+		getWeekEarthquake();
+		getDayEarthquake();
+		getHourEarthquake();
+
+		JButton button = new JButton("Refresh");
 		button.addActionListener(e -> {
 			getMonthEarthquake(e);
 			getWeekEarthquake(e);
@@ -83,7 +88,23 @@ public class EarthquakeGUI extends JFrame {
 		add(homePanel);
 	}
 
-	public void getHourEarthquake(ActionEvent e) {
+	private void getHourEarthquake(ActionEvent e) {
+		getHourEarthquake();
+	}
+
+	private void getDayEarthquake(ActionEvent e) {
+		getDayEarthquake();
+	}
+
+	private void getWeekEarthquake(ActionEvent e) {
+		getWeekEarthquake();
+	}
+
+	private void getMonthEarthquake(ActionEvent e) {
+		getMonthEarthquake();
+	}
+
+	public void getHourEarthquake() {
 		Call<EarthquakeFeed> call = service.getAllHour();
 		call.enqueue(new Callback<EarthquakeFeed>() {
 
@@ -103,7 +124,7 @@ public class EarthquakeGUI extends JFrame {
 		});
 	}
 
-	public void getDayEarthquake(ActionEvent e) {
+	public void getDayEarthquake() {
 		Call<EarthquakeFeed> call = service.getAllDay();
 		call.enqueue(new Callback<EarthquakeFeed>() {
 
@@ -123,7 +144,7 @@ public class EarthquakeGUI extends JFrame {
 		});
 	}
 
-	public void getWeekEarthquake(ActionEvent e) {
+	public void getWeekEarthquake() {
 		Call<EarthquakeFeed> call = service.getAllWeek();
 		call.enqueue(new Callback<EarthquakeFeed>() {
 
@@ -143,7 +164,7 @@ public class EarthquakeGUI extends JFrame {
 		});
 	}
 
-	public void getMonthEarthquake(ActionEvent e) {
+	public void getMonthEarthquake() {
 
 		Call<EarthquakeFeed> call = service.getAllMonth();
 		call.enqueue(new Callback<EarthquakeFeed>() {
