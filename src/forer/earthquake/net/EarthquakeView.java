@@ -111,7 +111,7 @@ public class EarthquakeView extends JFrame {
 		return enterMonthMag;
 	}
 
-	public JLabel getMonthLocTextField() {
+	public JLabel getMonthLocLabel() {
 		return enterMonthLoc;
 	}
 

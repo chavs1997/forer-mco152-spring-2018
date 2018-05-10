@@ -35,7 +35,7 @@ public class EarthquakeController {
 
 	public void requestMonth() {
 
-		requestEarthquakeFeed(service.getAllMonth(), view.getMonthMagLabel(), view.getMonthLocTextField());
+		requestEarthquakeFeed(service.getAllMonth(), view.getMonthMagLabel(), view.getMonthLocLabel());
 	}
 
 	public void requestEarthquakeFeed(Call<EarthquakeFeed> call, JLabel mag, JLabel loc) {
@@ -49,11 +49,15 @@ public class EarthquakeController {
 			@Override
 			public void onResponse(Call<EarthquakeFeed> call, Response<EarthquakeFeed> response) {
 				EarthquakeFeed feed = response.body();
-				Earthquake largest = feed.getLargest();
-				mag.setText(String.valueOf(largest.getProperties().getMag()));
-				loc.setText(String.valueOf(largest.getProperties().getPlace()));
+				showLargestEarthquake(feed, mag, loc);
 			}
 
 		});
+	}
+
+	public void showLargestEarthquake(EarthquakeFeed feed, JLabel mag, JLabel loc) {
+		Earthquake largest = feed.getLargest();
+		mag.setText(String.valueOf(largest.getProperties().getMag()));
+		loc.setText(String.valueOf(largest.getProperties().getPlace()));
 	}
 }

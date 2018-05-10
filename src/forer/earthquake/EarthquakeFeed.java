@@ -4,6 +4,11 @@ import java.util.List;
 
 public class EarthquakeFeed {
 
+	public EarthquakeFeed(String type, List<Earthquake> features) {
+		this.type = type;
+		this.features = features;
+	}
+
 	private String type;
 	private List<Earthquake> features;
 
