@@ -1,6 +1,9 @@
 package forer.earthquake.net;
 
 import javax.swing.JLabel;
+
+import com.google.inject.Inject;
+
 import forer.earthquake.*;
 import retrofit2.*;
 
@@ -9,6 +12,7 @@ public class EarthquakeController {
 	private EarthquakeView view;
 	private USGSEarthquakeService service;
 
+	@Inject
 	public EarthquakeController(EarthquakeView view, USGSEarthquakeService service) {
 		this.view = view;
 		this.service = service;

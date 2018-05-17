@@ -2,9 +2,15 @@ package forer.earthquake.net;
 
 import java.awt.*;
 import javax.swing.*;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Singleton;
+
 import retrofit2.*;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+@Singleton
 public class EarthquakeView extends JFrame {
 
 	private JLabel enterMonthMag = new JLabel();
@@ -62,25 +68,24 @@ public class EarthquakeView extends JFrame {
 		constraint.gridy = 4;
 		mainPanel.add(enterHourLoc, constraint);
 
-		Retrofit retrofit = new Retrofit.Builder().baseUrl("https://earthquake.usgs.gov")
-				.addConverterFactory(GsonConverterFactory.create()).build();
-
-		USGSEarthquakeService service = retrofit.create(USGSEarthquakeService.class);
-		EarthquakeController controller = new EarthquakeController(this, service);
-		controller.refreshData();
-
-		JButton button = new JButton("Refresh");
-		button.addActionListener(e -> {
-			controller.refreshData();
-		});
+		// JButton button = new JButton("Refresh");
+		// button.addActionListener(e -> {
+		// controller.refreshData();
+		// });
 
 		homePanel.add(mainPanel);
-		homePanel.add(button);
+		// homePanel.add(button);
 		add(homePanel);
 	}
 
 	public static void main(String[] args) {
-		new EarthquakeView().setVisible(true);
+
+		Injector injector = Guice.createInjector(new EarthquakeModule());
+		EarthquakeView view = injector.getInstance(EarthquakeView.class);
+		EarthquakeController controller = injector.getInstance(EarthquakeController.class);
+		controller.refreshData();
+
+		view.setVisible(true);
 	}
 
 	public JLabel getHourMagLabel() {
